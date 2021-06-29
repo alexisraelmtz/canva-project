@@ -2,6 +2,11 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
+
+
+// Pending gitHub Verification setup to be implemented.
+// help: Thread #01 ===> Agile.MD
+
 export default function Home() {
   return (
     <div className={styles.container}>
