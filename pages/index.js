@@ -1,57 +1,46 @@
-import styles from "../styles/Home.module.scss";
-import SignButton from "../components/SignButton";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSession, signIn, signOut } from "next-auth/client";
+import { useRouter } from "next/dist/client/router";
+import LogIn from "../components/LogIn";
+import ListCanvas from "./listCanvas";
 
 // Pending gitHub Verification setup to be implemented.
 // help: Thread #01 ===> Agile.MD
 
 export default function Home() {
+  const router = useRouter();
+  const [session, loading] = useSession();
   const [toggle, handleToggle] = useState(false);
-  console.log(toggle);
+  const [userSession, setUserSession] = useState({});
+
+  useEffect(() => {
+    if (session) {
+      setUserSession(session);
+    }
+    console.log(userSession);
+  }, []);
+
   return (
-    <div className={styles.background}>
-      <div className={styles["frosted-container"]}>
-        <div className={styles.frosted}>
-          <div className={styles.section}>
-            <p className={styles.email}>Email</p>
-            <input type="text" className={styles.input}></input>
-          </div>
-          <div className={styles.section}>
-            <p className={styles.password}>Password</p>
-            <input type="text" className={styles.input}></input>
-          </div>
-          <div className={styles.account}>
-            <p>
-              {toggle
-                ? "Already have an account? "
-                : "Don’t you have an account? "}
-              <a
-                href=""
-                className={styles.bold}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleToggle(!toggle);
-                }}>
-                {toggle ? "Log in" : "Sign up"}
-              </a>
-            </p>
-          </div>
-          <div className={styles.account}>
-            {toggle ? (
-              <SignButton title={"Sign up"} onClick={() => console.log("up")} />
-            ) : (
-              <SignButton title={"Sign in"} onClick={() => console.log("in")} />
-            )}
-          </div>
-          <div className={styles.section}>
-            <button
-              className={styles.google}
-              onClick={() => console.log("google")}>
-              Continue with Google
-            </button>
-          </div>
-        </div>
-      </div>
+    <div>
+      {!session && !loading && (
+        <LogIn toggle={toggle} handleToggle={handleToggle} signIn={signIn} />
+      )}
+      {session && (
+        <>
+          <pre>{JSON.stringify(session?.user, null, 2)}</pre>
+          <p>{session.user.name}</p>
+          <img src={session.user.image}></img>
+
+          <button onClick={() => signOut()}>Sign out</button>
+        </>
+      )}
     </div>
   );
 }
+
+// export async function getServerSideProps(context) {
+//   const session = await getSession(context);
+//   return {
+//     props: { session },
+//   };
+// }
