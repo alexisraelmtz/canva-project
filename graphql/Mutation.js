@@ -10,11 +10,13 @@ export const CREATE_USER = gql`
   }
 `;
 
-export const DELETE_USER = gql`
-  mutation createUser($id: ID!) {
-    deleteUser(id: $id) {
-      successfull
-      message
+export const CREATE_CANVA = gql`
+  mutation createCanva($username: String!) {
+    createCanva(username: $username) {
+      id
+      user_id
+      pjson
+      name
     }
   }
 `;
