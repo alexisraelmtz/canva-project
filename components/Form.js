@@ -65,7 +65,7 @@ const Form = ({ username, password, setPassword, setUsername }) => {
               className={styles.google}
               onClick={() =>
                 signIn("google", {
-                  callbackUrl: "http://localhost:3000/listcanvas",
+                  callbackUrl: "http://localhost:3000/canvas",
                 })
               }>
               Continue with Google
