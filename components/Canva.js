@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
-import styles from "../styles/canvaStyles.module.scss";
+import styles from '../styles/canvaStyles.module.scss';
+
 
 function MyCanva() {
   const canvasRef = useRef(null);
@@ -8,6 +9,11 @@ function MyCanva() {
 
   useEffect(() => {
     const canvas = canvasRef.current;
+    canvas.width = window.innerWidth * 1;
+    canvas.height = window.innerHeight * 1;
+    // Ratio 2:1
+    canvas.style.height = `${window.innerHeight * 0.5}px`;
+    canvas.style.width = `${window.innerWidth * 0.5}px`;
     canvas.width = 500;
     canvas.height = 500;
     // canvas.style.height = `${window.innerHeight}px`;
@@ -53,8 +59,19 @@ function MyCanva() {
   );
 }
 
-// 1 boton Clear
-// 1 boton Save
-// I am a dumb fack
 
-export default MyCanva;
+
+export default MyCanva
+
+
+
+// function mySession() {
+//   var canvas = document.getElementById('canvas');
+//   var dataURL = canvas.toDataURL();
+//   console.log(dataURL);
+// }
+
+// // 1 boton Clear
+// // 1 boton Save
+
+// export default mySession
