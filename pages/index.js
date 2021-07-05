@@ -1,31 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { useSession, signIn, signOut } from "next-auth/client";
-import { useRouter } from "next/dist/client/router";
-import LogIn from "../components/LogIn";
-import ListCanvas from "./listCanvas";
+import React from "react";
+import { getSession } from "next-auth/client";
+import { ApolloClient, InMemoryCache } from "@apollo/client";
 
 // Pending gitHub Verification setup to be implemented.
 // help: Thread #01 ===> Agile.MD
 
-export default function Home() {
-  const router = useRouter();
-  const [session, loading] = useSession();
-  const [toggle, handleToggle] = useState(false);
-  const [userSession, setUserSession] = useState({});
-
-  useEffect(() => {
-    if (session) {
-      setUserSession(session);
-    }
-    console.log(userSession);
-  }, []);
-
+export default function Home({ session }) {
   return (
     <div>
-      {!session && !loading && (
+      {/* <LogIn toggle={toggle} handleToggle={handleToggle} signIn={signIn} /> */}
+
+      {/* {!session && (
         <LogIn toggle={toggle} handleToggle={handleToggle} signIn={signIn} />
-      )}
-      {session && (
+      )} */}
+      {/* {session && (
         <>
           <pre>{JSON.stringify(session?.user, null, 2)}</pre>
           <p>{session.user.name}</p>
@@ -33,14 +21,26 @@ export default function Home() {
 
           <button onClick={() => signOut()}>Sign out</button>
         </>
-      )}
+      )} */}
     </div>
   );
 }
 
-// export async function getServerSideProps(context) {
-//   const session = await getSession(context);
-//   return {
-//     props: { session },
-//   };
-// }
+export async function getServerSideProps(context) {
+  const client = new ApolloClient({
+    uri: "http://localhost:4000",
+    cache: new InMemoryCache(),
+  });
+  const session = await getSession(context);
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: true,
+      },
+    };
+  }
+  return {
+    props: { session },
+  };
+}
