@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="chrome">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Iluminati2.0</title>
+     <style> </style>
+     <link rel="stylesheet" href="stylesOne.css">
+</head>
+
+<!-- <body onload="myCanva();"> -->
+
+<body>
+     <h3>Canvas App</h3>
+     <h6>Draw Mode</h6>
+     <canvas id="canvas"></canvas>
+
+     <div class='tools'>
+          <button onClick="exportDrawing()" type="button" class="button">Export</button>
+          <button onClick="saveDrawing()" type="button" class="button">Save</button>
+          <button onClick="clearDrawing()" type="button" class="button">Clear</button>
+          <button onClick="undoLast()" type=" button" class="button">Undo</button>
+
+          <div onClick="colorChange(this)" class="color-field" style="background: red;"></div>
+          <div onClick="colorChange(this)" class="color-field" style="background: green;"></div>
+          <div onClick="colorChange(this)" class="color-field" style="background: yellow;"></div>
+          <div onClick="colorChange(this)" class="color-field" style="background: blue;"></div>
+
+          <input onInput="startDrawingColor = this.value" type="color" class="color-selector">
+          <input onInput="startDrawingSize = this.value" type="range" min="1" max="100" class="pen-range">
+
+     </div>
+</body>
+<script src="canvaDraw.js">
+</script>
+
+</html>

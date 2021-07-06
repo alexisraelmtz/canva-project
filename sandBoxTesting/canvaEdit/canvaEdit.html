@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="chrome">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Iluminati2.0</title>
+     <style> </style>
+     <link rel="stylesheet" href="stylesOne.css">
+</head>
+
+<!-- <body onload="myCanva();"> -->
+
+<body>
+     <h3>Canva App</h3>
+     <h6>Edit Mode</h6>
+     <canvas id="canvas"></canvas>
+
+     <div class='tools'>
+          <button onClick="exportDrawing()" type="button" class="button">Export</button>
+          <button onClick="saveDrawing()" type="button" class="button">Save</button>
+          <button onClick="toggleMode(modes.drawing)" type="button" class="button">Mode</button>
+          <button onClick="clearDrawing()" type="button" class="button">Clear</button>
+
+          <!-- <button onClick="undoLast()" type=" button" class="button">Undo</button> -->
+
+          <!-- <div onClick="colorChange(this)" class="color-field" style="background: red;"></div>
+          <div onClick="colorChange(this)" class="color-field" style="background: green;"></div>
+          <div onClick="colorChange(this)" class="color-field" style="background: yellow;"></div>
+          <div onClick="colorChange(this)" class="color-field" style="background: blue;"></div> -->
+
+          <!-- <input onInput="startText(this.value,startDrawingColor)" type="text" min="1" max="100"> -->
+          <input onInput="doColor(this.value)" type="color" class="color-selector">
+          <input onInput="doSize(this.value)" type="range" min="1" max="100" class="pen-range">
+          <button onClick="doRectangle(startDrawingColor)" type=" button" class="button">Square</button>
+          <button onClick="doCircle(startDrawingColor)" type=" button" class="button">Circle</button>
+          <button onClick="doTriangle(startDrawingColor)" type=" button" class="button">Triangle</button>
+          <button onClick="removeElement()" type=" button" class="button">Delete</button>
+     </div>
+</body>
+<script src="fabric.min.js"></script>
+<script src="canvaEdit.js">
+</script>
+
+</html>
