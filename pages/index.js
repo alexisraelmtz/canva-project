@@ -40,7 +40,14 @@ export async function getServerSideProps(context) {
       },
     };
   }
-  return {
-    props: { session },
-  };
+  if (session) {
+    console.log(session);
+    return {
+      redirect: {
+        destination: "/canvas",
+        permanent: false,
+      },
+      props: { session },
+    };
+  }
 }

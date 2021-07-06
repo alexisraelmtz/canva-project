@@ -1,0 +1,33 @@
+.editable-input {
+    height: 38px;
+}
+
+.editable-textarea {
+    height: 120px;
+}
+
+.text-black {
+    color: black;
+}
+
+.text-gray {
+    color: gray;
+}
+
+.input {
+    border-radius: 4px;
+    color: gray;
+    line-height: 1.25;
+    white-space: pre-wrap;
+    border: 1px solid transparent;
+    &:hover {
+        border: 1px solid #7795ff;
+    }
+}
+
+.section {
+    width: 100%;
+    .input {
+        width: 100%;
+    }
+}
