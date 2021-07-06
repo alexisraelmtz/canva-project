@@ -4,21 +4,39 @@
 import { signOut } from "next-auth/client";
 import Nav from "../components/Nav";
 import CreateCanva from "../components/CreateCanva";
+import Thumbnail from "../components/Thumbnail";
 import { getSession } from "next-auth/client";
 import styles from "../styles/ListCanvas.module.scss";
+import { GET_ALLCANVAS_BY_USER } from "../graphql/Queries";
+import { useQuery } from "@apollo/client";
 
 const ListCanvas = ({ session }) => {
-  const { image, name } = session.user;
+  const { image, name, email } = session.user;
+  const { loading, error, data } = useQuery(GET_ALLCANVAS_BY_USER, {
+    variables: { username: session.user.email },
+  });
+  if (loading) return <p>Loading ...</p>;
+  console.log(data);
   return (
     <>
       <Nav image={image} name={name} title={"Your Designs"} />
       <div className={styles.listcontainer}>
-        <CreateCanva author={name} />
-
+        {data.getAllCanvaByUser.map((canva) => (
+          <Thumbnail
+            create_date={canva.create_date}
+            id={canva.id}
+            name={canva.name}
+            author={name}
+            key={canva.create_date}
+          />
+        ))}
+        <CreateCanva author={name} username={email} />
         <div className={styles.signout}>
           <button
             className={styles.signoutbutton}
-            onClick={() => signOut({ callbackUrl: "http://localhost:3000/" })}>
+            onClick={() =>
+              signOut({ callbackUrl: "http://localhost:3000/login" })
+            }>
             Sign out
           </button>
         </div>
