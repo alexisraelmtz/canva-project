@@ -11,7 +11,7 @@ const main = async () => {
     type: "mysql",
     database: "crud-react-express",
     username: "root",
-    password: "root",
+    password: "interpol",
     port: 3306,
     logging: true,
     synchronize: true, //SET TO TRUE ONLY WHEN IT IS THE FIRST TIME RUNNING, SET TO FALSE THEN.

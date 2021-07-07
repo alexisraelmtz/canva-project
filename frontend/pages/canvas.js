@@ -9,7 +9,7 @@ import { getSession } from "next-auth/client";
 import styles from "../styles/ListCanvas.module.scss";
 import { GET_ALLCANVAS_BY_USER } from "../graphql/Queries";
 import { useQuery } from "@apollo/client";
-import Link from "next/link";
+import SignOutButton from "../components/SignOutButton";
 
 const ListCanvas = ({ session }) => {
   const { image, name, email } = session.user;
@@ -40,13 +40,7 @@ const ListCanvas = ({ session }) => {
         </div>
 
         <div className={styles.signout}>
-          <button
-            className={styles.signoutbutton}
-            onClick={() =>
-              signOut({ callbackUrl: "http://localhost:3000/login" })
-            }>
-            →
-          </button>
+          <SignOutButton signOut={signOut} />
         </div>
       </div>
     </>
