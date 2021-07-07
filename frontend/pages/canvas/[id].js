@@ -7,19 +7,6 @@ import { useRouter } from "next/router";
 // width="600" height="600"
 
 export default function Editor({ session }) {
-  // useEffect(() => {
-  //   const script = document.createElement("script");
-
-  //   script.src = "../../lib/fabric.min.js";
-  //   script.async = true;
-
-  //   document.body.appendChild(script);
-
-  //   return () => {
-  //     document.body.removeChild(script);
-  //   };
-  // }, []);
-
   const { image, name } = session.user;
   const router = useRouter();
   // console.log(router.query);
