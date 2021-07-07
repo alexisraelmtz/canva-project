@@ -1,0 +1,33 @@
+.newcanva {
+    display: flex;
+    flex-flow: column;
+    width: 10em;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    justify-content: flex-start;
+    .addcanva {
+        display: flex;
+        border: 3px solid #7795ff;
+        background-color: #7795ff;
+        border-radius: 10px;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        width: 10em;
+        height: 10em;
+        margin-bottom: 5px;
+    }
+    .canvasdata {
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        .input {
+            width: 100%;
+        }
+        .datetime {
+            color: gray;
+            font-size: 0.8em;
+        }
+    }
+}
