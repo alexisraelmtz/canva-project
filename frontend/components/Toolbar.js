@@ -20,7 +20,7 @@ const Toolbar = () => {
       });
       return request;
     };
-    getPhotos().then((data) => console.log(data));
+    // getPhotos().then((data) => console.log(data));
   }, []);
   return (
     <div className={styles.toolbarcontainer}>
@@ -31,6 +31,11 @@ const Toolbar = () => {
         <button className={styles.elementsbutton}>L</button>
         <button className={styles.elementsbutton}>A</button>
         <button className={styles.elementsbutton}>P</button>
+        <button className={styles.elementsbutton}>A</button>
+        <button className={styles.elementsbutton}>P</button>
+        <input type="color" />
+        <input type="range" />
+
         <input
           placeholder="Search photo"
           className={styles.searchbar}

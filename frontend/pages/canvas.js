@@ -45,7 +45,7 @@ const ListCanvas = ({ session }) => {
             onClick={() =>
               signOut({ callbackUrl: "http://localhost:3000/login" })
             }>
-            Sign out
+            →
           </button>
         </div>
       </div>
