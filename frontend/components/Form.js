@@ -66,7 +66,7 @@ const Form = ({ username, password, setPassword, setUsername }) => {
               className={styles.google}
               onClick={() =>
                 signIn("google", {
-                  callbackUrl: "http://localhost:3000/canvasses",
+                  callbackUrl: "http://localhost:3000/canvas",
                 })
               }>
               <img
@@ -80,7 +80,7 @@ const Form = ({ username, password, setPassword, setUsername }) => {
               className={styles.google}
               onClick={() =>
                 signIn("github", {
-                  callbackUrl: "http://localhost:3000/listCanvas",
+                  callbackUrl: "http://localhost:3000/canvas",
                 })
               }>
               Continue with GitHub

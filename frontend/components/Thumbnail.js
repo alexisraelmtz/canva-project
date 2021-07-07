@@ -18,7 +18,7 @@ const Thumbnail = ({ create_date, name, id, author }) => {
   };
   return (
     <div className={styles.newcanva}>
-      <Link href={`/canvasses/${x.id}`}>
+      <Link href={`/canvas/${x.id}`}>
         <div
           className={styles.addcanva}
           onClick={() => console.log("ok")}></div>

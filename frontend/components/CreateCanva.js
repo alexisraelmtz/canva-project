@@ -14,7 +14,7 @@ const CreateCanva = ({ username, author }) => {
       variables: { username: username },
     });
     const canvaID = await getCanvaID.data.createCanva.id;
-    router.push(`/canvasses/${canvaID}`);
+    router.push(`/canvas/${canvaID}`);
   };
   return (
     <div
