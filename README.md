@@ -1,44 +1,47 @@
 # Canva Project – RockStars 6G 
 ---
 ### Team:
-- Pamela Zoé Garcia [frontend] []
-- Alex Israel Martinez [frontend] []
-- Cristian Ramirez [backend] []
-- Omar Mancillas [backend] []
+- Pamela Zoé Garcia [frontend] - [https://github.com/pamelazoe]
+- Alex Israel Martinez [frontend] - [https://github.com/alexisraelmtz]
+- Cristian Ramirez [backend] - [https://github.com/ImSeenOne]
+- Omar Mancillas [backend] - [https://github.com/OmarMancillas]
 ---
 
-##Set Up
+## Set Up
 
 ### Install Requirements
-- git clone []
--MySQL server
-- mySQL server running on por 3036
-- Add mysql DataBase named “crud-react-express”
+- `git clone https://github.com/alexisraelmtz/canva-project.git`
+- MySQL server
+- mySQL server running on por `3306`
+- Add a mysql DataBase named “crud-react-express”
 
 e.g. Unix like systems:
-$ sudo service mysql start
-$ sudo mysql -u root -p
-mysql> CREATE DATABASE `crud-react-express`;
+  $ `sudo service mysql start`
+  $ `sudo mysql -u root -p`
+  mysql> `CREATE DATABASE crud-react-express`;
 
 #### Frontend Dir.
 ##### Before going Live:
 Set up this installs.
-- Yarn or Npm e.g yarn install && yarn init
-- React e.g. yarn add next react react-dom
+- Yarn or Npm e.g `yarn install && yarn init`
+- React e.g. `yarn add next react react-dom`
 
 #### After:
 Run server.
-- yarn dev
-and, browser the following server port: 
-http://localhost:3000/login
-Default port: 3000/
+- `yarn dev`
+And, browser the following server port: 
+  `http://localhost:3000/login`
+Default port: `3000`
 
 #### Backend Dir.
 ##### Before going Live:
 Set up this installs.
-- Yarn or Npm e.g yarn install && yarn init
+- Yarn or Npm e.g `yarn install && yarn init`
 - Add:
-* @apollo/server
-* apollo-server graphql
+  * `@apollo/server`
+  * `apollo-server graphql`
 Run server.
-- yarn dev
+- `yarn dev`
+And, browser the following server port: 
+  `http://localhost:3001/graphql`
+Default port: `3001`
